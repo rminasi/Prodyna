@@ -1,0 +1,33 @@
+<div class="container">
+
+  <h1>PRODYNA</h1>
+  <h3>POSTS</h3>
+
+  <div class="search-bar">
+    <form action="/" method="get">
+      <input type="text" name="query" placeholder="Search for a Title here..." >
+      <input type="submit">
+    </form>
+  </div>
+  <div class="accordion" id="accordionExample">
+    <% @posts.each_with_index do |post, i| %>
+      <div class="cards">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<%= i %>" aria-expanded="true" aria-controls="collapse<%= i %>">
+            <%= post["title"].capitalize %>
+            </button>
+            </h2>
+          </div>
+
+        <div id="collapse<%= i %>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            <%= post["body"].capitalize %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
